@@ -1,1 +1,1 @@
-module.exports = require('./plugin').default;
+module.exports = require('./plugin').default

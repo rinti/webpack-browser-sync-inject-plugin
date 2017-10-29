@@ -1,5 +1,4 @@
 const browserSync = require('browser-sync')
-const path = require('path')
 
 const defaultPluginOptions = {
   watchForInjection: []
@@ -13,14 +12,14 @@ class BrowserSyncInject {
     this.apply = this.apply.bind(this)
   }
 
-
   apply(compiler) {
     compiler.plugin('done', (stats) => {
       if(!this.isRunning) {
-        this.isRunning = true;
+        this.isRunning = true
         this.browserSync.init(this.browserSyncOptions)
-        return;
+        return
       }
+
       const { name } = stats.compilation.options
 
       if(this.options.watchForInjection.includes(name)) {
@@ -28,9 +27,8 @@ class BrowserSyncInject {
       } else {
         this.browserSync.reload()
       }
-
     });
   }
 }
 
-export default BrowserSyncInject;
+export default BrowserSyncInject
