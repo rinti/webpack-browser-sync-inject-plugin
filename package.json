@@ -1,0 +1,28 @@
+{
+  "name": "webpack-browser-sync-inject-plugin",
+  "version": "0.0.1",
+  "description": "An easy to use browsersync plugin for webpack",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "npm run build -- -w",
+    "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "browsersync",
+    "webpack"
+  ],
+  "author": "Andreas Bernacca",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.13"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1"
+  }
+}
