@@ -7,9 +7,7 @@ const defaultPluginOptions = {
 
 class BrowserSyncInject {
   constructor(pluginOptions=defaultPluginOptions, browserSyncOptions={}) {
-    console.log(pluginOptions, browserSyncOptions)
     this.options = pluginOptions
-    this.browserSync = browserSync.init()
     this.browserSyncOptions = browserSyncOptions
     this.browserSync = browserSync.create()
     this.apply = this.apply.bind(this)
