@@ -13,10 +13,16 @@ class BrowserSyncInject {
   }
 
   apply(compiler) {
-    compiler.plugin('done', (stats) => {
-      if(!this.isRunning) {
-        this.isRunning = true
+    compiler.plugin('watch-run', (watching, callback) => {
+      if(!this.isWatching && watching) {
+        this.isWatching = true
         this.browserSync.init(this.browserSyncOptions)
+      }
+      callback()
+    })
+
+    compiler.plugin('done', (stats) => {
+      if(!this.isWatching) {
         return
       }
 
